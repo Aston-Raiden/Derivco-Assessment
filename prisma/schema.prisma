@@ -1,0 +1,86 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+model User {
+  id            String    @id @default(cuid())
+  name          String
+  email         String    @unique
+  password      String
+  bio           String?
+  avatar        String?
+  github        String?
+  linkedin      String?
+  skills        String?   // JSON array stored as string
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  projects      Project[]
+  comments      Comment[]
+  collaborations CollaborationRequest[]
+}
+
+model Project {
+  id            String    @id @default(cuid())
+  title         String
+  description   String
+  stage         String    // "idea" | "planning" | "in-progress" | "testing" | "completed"
+  supportNeeded String?   // What kind of help they need
+  techStack     String?   // Technologies used
+  repoUrl       String?
+  liveUrl       String?
+  coverImage    String?
+  isCompleted   Boolean   @default(false)
+  completedAt   DateTime?
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  userId        String
+  user          User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  milestones    Milestone[]
+  comments      Comment[]
+  collaborations CollaborationRequest[]
+}
+
+model Milestone {
+  id            String    @id @default(cuid())
+  title         String
+  description   String?
+  isAchieved    Boolean   @default(false)
+  achievedAt    DateTime?
+  createdAt     DateTime  @default(now())
+
+  projectId     String
+  project       Project   @relation(fields: [projectId], references: [id], onDelete: Cascade)
+}
+
+model Comment {
+  id            String    @id @default(cuid())
+  content       String
+  createdAt     DateTime  @default(now())
+
+  userId        String
+  user          User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  projectId     String
+  project       Project   @relation(fields: [projectId], references: [id], onDelete: Cascade)
+}
+
+model CollaborationRequest {
+  id            String    @id @default(cuid())
+  message       String?
+  status        String    @default("pending") // "pending" | "accepted" | "declined"
+  createdAt     DateTime  @default(now())
+
+  userId        String
+  user          User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  projectId     String
+  project       Project   @relation(fields: [projectId], references: [id], onDelete: Cascade)
+}
