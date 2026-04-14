@@ -1,3 +1,4 @@
+// wraps the app with NextAuth session provider so useSession() works everywhere
 "use client";
 
 import { SessionProvider } from "next-auth/react";

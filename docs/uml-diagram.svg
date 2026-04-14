@@ -1,0 +1,346 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1320 920" width="1320" height="920" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">
+
+  <!-- Background -->
+  <rect width="1320" height="920" fill="#ffffff"/>
+
+  <!-- Title Bar -->
+  <rect x="0" y="0" width="1320" height="52" fill="#16a34a" rx="0"/>
+  <text x="660" y="34" text-anchor="middle" fill="#ffffff" font-size="20" font-weight="700" letter-spacing="1">MzansiBuilds  --  Data Model Class Diagram</text>
+
+  <!-- Definitions: arrowheads and markers -->
+  <defs>
+    <!-- Filled diamond for composition -->
+    <marker id="diamond" viewBox="0 0 14 10" refX="14" refY="5" markerWidth="14" markerHeight="10" orient="auto">
+      <polygon points="0,5 7,0 14,5 7,10" fill="#1e293b" stroke="#1e293b" stroke-width="0.5"/>
+    </marker>
+    <!-- Open arrow for navigability -->
+    <marker id="arrow" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M0,0 L10,5 L0,10" fill="none" stroke="#1e293b" stroke-width="1.5"/>
+    </marker>
+    <!-- Drop shadow filter -->
+    <filter id="shadow" x="-4%" y="-4%" width="110%" height="112%">
+      <feDropShadow dx="2" dy="3" stdDeviation="3" flood-color="#00000020"/>
+    </filter>
+  </defs>
+
+  <!-- ============================================================ -->
+  <!--  CLASS: User  (left side)                                     -->
+  <!-- ============================================================ -->
+  <g transform="translate(60, 100)" filter="url(#shadow)">
+    <!-- Box outline -->
+    <rect x="0" y="0" width="280" height="340" rx="6" ry="6" fill="#ffffff" stroke="#1e293b" stroke-width="2"/>
+    <!-- Header -->
+    <rect x="0" y="0" width="280" height="42" rx="6" ry="6" fill="#16a34a"/>
+    <rect x="0" y="20" width="280" height="22" fill="#16a34a"/>
+    <text x="140" y="28" text-anchor="middle" fill="#ffffff" font-size="16" font-weight="700">User</text>
+    <!-- Separator -->
+    <line x1="0" y1="42" x2="280" y2="42" stroke="#1e293b" stroke-width="1.5"/>
+    <!-- Attributes -->
+    <text x="14" y="66" fill="#1e293b" font-size="12.5">
+      <tspan font-weight="600">+ id</tspan> : String  <tspan fill="#16a34a" font-size="10">PK</tspan>
+    </text>
+    <text x="14" y="88" fill="#1e293b" font-size="12.5">
+      <tspan font-weight="600">+ name</tspan> : String
+    </text>
+    <text x="14" y="110" fill="#1e293b" font-size="12.5">
+      <tspan font-weight="600">+ email</tspan> : String  <tspan fill="#16a34a" font-size="10">UNIQUE</tspan>
+    </text>
+    <text x="14" y="132" fill="#1e293b" font-size="12.5">
+      <tspan font-weight="600">+ password</tspan> : String
+    </text>
+    <text x="14" y="154" fill="#1e293b" font-size="12.5">
+      <tspan font-weight="600">+ bio</tspan> : String?
+    </text>
+    <text x="14" y="176" fill="#1e293b" font-size="12.5">
+      <tspan font-weight="600">+ avatar</tspan> : String?
+    </text>
+    <text x="14" y="198" fill="#1e293b" font-size="12.5">
+      <tspan font-weight="600">+ github</tspan> : String?
+    </text>
+    <text x="14" y="220" fill="#1e293b" font-size="12.5">
+      <tspan font-weight="600">+ linkedin</tspan> : String?
+    </text>
+    <text x="14" y="242" fill="#1e293b" font-size="12.5">
+      <tspan font-weight="600">+ skills</tspan> : String?  <tspan fill="#64748b" font-size="10">JSON</tspan>
+    </text>
+    <text x="14" y="264" fill="#1e293b" font-size="12.5">
+      <tspan font-weight="600">+ createdAt</tspan> : DateTime
+    </text>
+    <text x="14" y="286" fill="#1e293b" font-size="12.5">
+      <tspan font-weight="600">+ updatedAt</tspan> : DateTime
+    </text>
+    <!-- Separator -->
+    <line x1="0" y1="298" x2="280" y2="298" stroke="#d1d5db" stroke-width="1"/>
+    <!-- Relations -->
+    <text x="14" y="318" fill="#64748b" font-size="11.5" font-style="italic">
+      + projects : Project[ ]
+    </text>
+    <text x="14" y="336" fill="#64748b" font-size="11.5" font-style="italic">
+      + comments : Comment[ ]
+    </text>
+  </g>
+
+  <!-- ============================================================ -->
+  <!--  CLASS: Project  (centre)                                     -->
+  <!-- ============================================================ -->
+  <g transform="translate(520, 80)" filter="url(#shadow)">
+    <rect x="0" y="0" width="300" height="430" rx="6" ry="6" fill="#ffffff" stroke="#1e293b" stroke-width="2"/>
+    <!-- Header -->
+    <rect x="0" y="0" width="300" height="42" rx="6" ry="6" fill="#16a34a"/>
+    <rect x="0" y="20" width="300" height="22" fill="#16a34a"/>
+    <text x="150" y="28" text-anchor="middle" fill="#ffffff" font-size="16" font-weight="700">Project</text>
+    <!-- Separator -->
+    <line x1="0" y1="42" x2="300" y2="42" stroke="#1e293b" stroke-width="1.5"/>
+    <!-- Attributes -->
+    <text x="14" y="66" fill="#1e293b" font-size="12.5">
+      <tspan font-weight="600">+ id</tspan> : String  <tspan fill="#16a34a" font-size="10">PK</tspan>
+    </text>
+    <text x="14" y="88" fill="#1e293b" font-size="12.5">
+      <tspan font-weight="600">+ title</tspan> : String
+    </text>
+    <text x="14" y="110" fill="#1e293b" font-size="12.5">
+      <tspan font-weight="600">+ description</tspan> : String
+    </text>
+    <text x="14" y="132" fill="#1e293b" font-size="12.5">
+      <tspan font-weight="600">+ stage</tspan> : String  <tspan fill="#64748b" font-size="10">enum-like</tspan>
+    </text>
+    <text x="14" y="154" fill="#1e293b" font-size="12.5">
+      <tspan font-weight="600">+ supportNeeded</tspan> : String?
+    </text>
+    <text x="14" y="176" fill="#1e293b" font-size="12.5">
+      <tspan font-weight="600">+ techStack</tspan> : String?
+    </text>
+    <text x="14" y="198" fill="#1e293b" font-size="12.5">
+      <tspan font-weight="600">+ repoUrl</tspan> : String?
+    </text>
+    <text x="14" y="220" fill="#1e293b" font-size="12.5">
+      <tspan font-weight="600">+ liveUrl</tspan> : String?
+    </text>
+    <text x="14" y="242" fill="#1e293b" font-size="12.5">
+      <tspan font-weight="600">+ coverImage</tspan> : String?
+    </text>
+    <text x="14" y="264" fill="#1e293b" font-size="12.5">
+      <tspan font-weight="600">+ isCompleted</tspan> : Boolean
+    </text>
+    <text x="14" y="286" fill="#1e293b" font-size="12.5">
+      <tspan font-weight="600">+ completedAt</tspan> : DateTime?
+    </text>
+    <text x="14" y="308" fill="#1e293b" font-size="12.5">
+      <tspan font-weight="600">+ createdAt</tspan> : DateTime
+    </text>
+    <text x="14" y="330" fill="#1e293b" font-size="12.5">
+      <tspan font-weight="600">+ updatedAt</tspan> : DateTime
+    </text>
+    <text x="14" y="352" fill="#1e293b" font-size="12.5">
+      <tspan font-weight="600">+ userId</tspan> : String  <tspan fill="#16a34a" font-size="10">FK</tspan>
+    </text>
+    <!-- Separator -->
+    <line x1="0" y1="366" x2="300" y2="366" stroke="#d1d5db" stroke-width="1"/>
+    <!-- Relations -->
+    <text x="14" y="386" fill="#64748b" font-size="11.5" font-style="italic">
+      + milestones : Milestone[ ]
+    </text>
+    <text x="14" y="404" fill="#64748b" font-size="11.5" font-style="italic">
+      + comments : Comment[ ]
+    </text>
+    <text x="14" y="422" fill="#64748b" font-size="11.5" font-style="italic">
+      + collaborations : CollaborationRequest[ ]
+    </text>
+  </g>
+
+  <!-- ============================================================ -->
+  <!--  CLASS: Milestone  (top-right)                                -->
+  <!-- ============================================================ -->
+  <g transform="translate(1000, 80)" filter="url(#shadow)">
+    <rect x="0" y="0" width="260" height="212" rx="6" ry="6" fill="#ffffff" stroke="#1e293b" stroke-width="2"/>
+    <!-- Header -->
+    <rect x="0" y="0" width="260" height="42" rx="6" ry="6" fill="#16a34a"/>
+    <rect x="0" y="20" width="260" height="22" fill="#16a34a"/>
+    <text x="130" y="28" text-anchor="middle" fill="#ffffff" font-size="16" font-weight="700">Milestone</text>
+    <line x1="0" y1="42" x2="260" y2="42" stroke="#1e293b" stroke-width="1.5"/>
+    <!-- Attributes -->
+    <text x="14" y="66" fill="#1e293b" font-size="12.5">
+      <tspan font-weight="600">+ id</tspan> : String  <tspan fill="#16a34a" font-size="10">PK</tspan>
+    </text>
+    <text x="14" y="88" fill="#1e293b" font-size="12.5">
+      <tspan font-weight="600">+ title</tspan> : String
+    </text>
+    <text x="14" y="110" fill="#1e293b" font-size="12.5">
+      <tspan font-weight="600">+ description</tspan> : String?
+    </text>
+    <text x="14" y="132" fill="#1e293b" font-size="12.5">
+      <tspan font-weight="600">+ isAchieved</tspan> : Boolean
+    </text>
+    <text x="14" y="154" fill="#1e293b" font-size="12.5">
+      <tspan font-weight="600">+ achievedAt</tspan> : DateTime?
+    </text>
+    <text x="14" y="176" fill="#1e293b" font-size="12.5">
+      <tspan font-weight="600">+ createdAt</tspan> : DateTime
+    </text>
+    <text x="14" y="198" fill="#1e293b" font-size="12.5">
+      <tspan font-weight="600">+ projectId</tspan> : String  <tspan fill="#16a34a" font-size="10">FK</tspan>
+    </text>
+  </g>
+
+  <!-- ============================================================ -->
+  <!--  CLASS: Comment  (bottom-centre)                              -->
+  <!-- ============================================================ -->
+  <g transform="translate(370, 600)" filter="url(#shadow)">
+    <rect x="0" y="0" width="260" height="178" rx="6" ry="6" fill="#ffffff" stroke="#1e293b" stroke-width="2"/>
+    <!-- Header -->
+    <rect x="0" y="0" width="260" height="42" rx="6" ry="6" fill="#16a34a"/>
+    <rect x="0" y="20" width="260" height="22" fill="#16a34a"/>
+    <text x="130" y="28" text-anchor="middle" fill="#ffffff" font-size="16" font-weight="700">Comment</text>
+    <line x1="0" y1="42" x2="260" y2="42" stroke="#1e293b" stroke-width="1.5"/>
+    <!-- Attributes -->
+    <text x="14" y="66" fill="#1e293b" font-size="12.5">
+      <tspan font-weight="600">+ id</tspan> : String  <tspan fill="#16a34a" font-size="10">PK</tspan>
+    </text>
+    <text x="14" y="88" fill="#1e293b" font-size="12.5">
+      <tspan font-weight="600">+ content</tspan> : String
+    </text>
+    <text x="14" y="110" fill="#1e293b" font-size="12.5">
+      <tspan font-weight="600">+ createdAt</tspan> : DateTime
+    </text>
+    <text x="14" y="132" fill="#1e293b" font-size="12.5">
+      <tspan font-weight="600">+ userId</tspan> : String  <tspan fill="#16a34a" font-size="10">FK</tspan>
+    </text>
+    <text x="14" y="154" fill="#1e293b" font-size="12.5">
+      <tspan font-weight="600">+ projectId</tspan> : String  <tspan fill="#16a34a" font-size="10">FK</tspan>
+    </text>
+  </g>
+
+  <!-- ============================================================ -->
+  <!--  CLASS: CollaborationRequest  (bottom-right)                  -->
+  <!-- ============================================================ -->
+  <g transform="translate(750, 600)" filter="url(#shadow)">
+    <rect x="0" y="0" width="290" height="198" rx="6" ry="6" fill="#ffffff" stroke="#1e293b" stroke-width="2"/>
+    <!-- Header -->
+    <rect x="0" y="0" width="290" height="42" rx="6" ry="6" fill="#16a34a"/>
+    <rect x="0" y="20" width="290" height="22" fill="#16a34a"/>
+    <text x="145" y="28" text-anchor="middle" fill="#ffffff" font-size="16" font-weight="700">CollaborationRequest</text>
+    <line x1="0" y1="42" x2="290" y2="42" stroke="#1e293b" stroke-width="1.5"/>
+    <!-- Attributes -->
+    <text x="14" y="66" fill="#1e293b" font-size="12.5">
+      <tspan font-weight="600">+ id</tspan> : String  <tspan fill="#16a34a" font-size="10">PK</tspan>
+    </text>
+    <text x="14" y="88" fill="#1e293b" font-size="12.5">
+      <tspan font-weight="600">+ message</tspan> : String?
+    </text>
+    <text x="14" y="110" fill="#1e293b" font-size="12.5">
+      <tspan font-weight="600">+ status</tspan> : String  <tspan fill="#64748b" font-size="10">enum-like</tspan>
+    </text>
+    <text x="14" y="132" fill="#1e293b" font-size="12.5">
+      <tspan font-weight="600">+ createdAt</tspan> : DateTime
+    </text>
+    <text x="14" y="154" fill="#1e293b" font-size="12.5">
+      <tspan font-weight="600">+ userId</tspan> : String  <tspan fill="#16a34a" font-size="10">FK</tspan>
+    </text>
+    <text x="14" y="176" fill="#1e293b" font-size="12.5">
+      <tspan font-weight="600">+ projectId</tspan> : String  <tspan fill="#16a34a" font-size="10">FK</tspan>
+    </text>
+  </g>
+
+  <!-- ============================================================ -->
+  <!--  RELATIONSHIP LINES                                           -->
+  <!-- ============================================================ -->
+
+  <!-- ~~~~~ User 1 ---< * Project ~~~~~ -->
+  <!-- From User right edge (340, 270) to Project left edge (520, 270) -->
+  <line x1="340" y1="270" x2="520" y2="270" stroke="#1e293b" stroke-width="2" marker-start="url(#diamond)"/>
+  <!-- Cardinality labels -->
+  <rect x="346" y="252" width="20" height="16" rx="3" fill="#ffffff"/>
+  <text x="356" y="264" text-anchor="middle" fill="#1e293b" font-size="12" font-weight="700">1</text>
+  <rect x="494" y="252" width="24" height="16" rx="3" fill="#ffffff"/>
+  <text x="506" y="264" text-anchor="middle" fill="#1e293b" font-size="12" font-weight="700">0..*</text>
+  <!-- Role label -->
+  <rect x="398" y="236" width="64" height="16" rx="3" fill="#f0fdf4" stroke="#16a34a" stroke-width="0.5"/>
+  <text x="430" y="248" text-anchor="middle" fill="#16a34a" font-size="10" font-weight="600">has many</text>
+
+  <!-- ~~~~~ Project 1 ---< * Milestone ~~~~~ -->
+  <!-- From Project right edge (820, 186) to Milestone left edge (1000, 186) -->
+  <line x1="820" y1="186" x2="1000" y2="186" stroke="#1e293b" stroke-width="2" marker-start="url(#diamond)"/>
+  <rect x="826" y="168" width="20" height="16" rx="3" fill="#ffffff"/>
+  <text x="836" y="180" text-anchor="middle" fill="#1e293b" font-size="12" font-weight="700">1</text>
+  <rect x="972" y="168" width="24" height="16" rx="3" fill="#ffffff"/>
+  <text x="984" y="180" text-anchor="middle" fill="#1e293b" font-size="12" font-weight="700">0..*</text>
+  <rect x="878" y="152" width="64" height="16" rx="3" fill="#f0fdf4" stroke="#16a34a" stroke-width="0.5"/>
+  <text x="910" y="164" text-anchor="middle" fill="#16a34a" font-size="10" font-weight="600">has many</text>
+
+  <!-- ~~~~~ User 1 ---< * Comment ~~~~~ -->
+  <!-- From User bottom (200, 440) down-right to Comment top-left (500, 600) -->
+  <path d="M 200,440 L 200,530 L 460,530 L 460,600" fill="none" stroke="#1e293b" stroke-width="2" marker-start="url(#diamond)"/>
+  <rect x="186" y="444" width="20" height="16" rx="3" fill="#ffffff"/>
+  <text x="196" y="456" text-anchor="middle" fill="#1e293b" font-size="12" font-weight="700">1</text>
+  <rect x="446" y="578" width="24" height="16" rx="3" fill="#ffffff"/>
+  <text x="458" y="590" text-anchor="middle" fill="#1e293b" font-size="12" font-weight="700">0..*</text>
+  <rect x="232" y="520" width="64" height="16" rx="3" fill="#f0fdf4" stroke="#16a34a" stroke-width="0.5"/>
+  <text x="264" y="532" text-anchor="middle" fill="#16a34a" font-size="10" font-weight="600">has many</text>
+
+  <!-- ~~~~~ Project 1 ---< * Comment ~~~~~ -->
+  <!-- From Project bottom (620, 510) down to Comment top-right (580, 600) -->
+  <path d="M 640,510 L 640,560 L 560,560 L 560,600" fill="none" stroke="#1e293b" stroke-width="2" marker-start="url(#diamond)"/>
+  <rect x="626" y="514" width="20" height="16" rx="3" fill="#ffffff"/>
+  <text x="636" y="526" text-anchor="middle" fill="#1e293b" font-size="12" font-weight="700">1</text>
+  <rect x="546" y="578" width="24" height="16" rx="3" fill="#ffffff"/>
+  <text x="558" y="590" text-anchor="middle" fill="#1e293b" font-size="12" font-weight="700">0..*</text>
+  <rect x="592" y="546" width="64" height="16" rx="3" fill="#f0fdf4" stroke="#16a34a" stroke-width="0.5"/>
+  <text x="624" y="558" text-anchor="middle" fill="#16a34a" font-size="10" font-weight="600">has many</text>
+
+  <!-- ~~~~~ User 1 ---< * CollaborationRequest ~~~~~ -->
+  <!-- From User bottom-right area down to CollaborationRequest left -->
+  <path d="M 280,440 L 280,570 L 830,570 L 830,600" fill="none" stroke="#1e293b" stroke-width="2" stroke-dasharray="6,3" marker-start="url(#diamond)"/>
+  <rect x="266" y="444" width="20" height="16" rx="3" fill="#ffffff"/>
+  <text x="276" y="456" text-anchor="middle" fill="#1e293b" font-size="12" font-weight="700">1</text>
+  <rect x="816" y="578" width="24" height="16" rx="3" fill="#ffffff"/>
+  <text x="828" y="590" text-anchor="middle" fill="#1e293b" font-size="12" font-weight="700">0..*</text>
+  <rect x="514" y="558" width="64" height="16" rx="3" fill="#f0fdf4" stroke="#16a34a" stroke-width="0.5"/>
+  <text x="546" y="570" text-anchor="middle" fill="#16a34a" font-size="10" font-weight="600">has many</text>
+
+  <!-- ~~~~~ Project 1 ---< * CollaborationRequest ~~~~~ -->
+  <!-- From Project bottom-right down to CollaborationRequest top -->
+  <path d="M 740,510 L 740,555 L 920,555 L 920,600" fill="none" stroke="#1e293b" stroke-width="2" stroke-dasharray="6,3" marker-start="url(#diamond)"/>
+  <rect x="726" y="514" width="20" height="16" rx="3" fill="#ffffff"/>
+  <text x="736" y="526" text-anchor="middle" fill="#1e293b" font-size="12" font-weight="700">1</text>
+  <rect x="906" y="578" width="24" height="16" rx="3" fill="#ffffff"/>
+  <text x="918" y="590" text-anchor="middle" fill="#1e293b" font-size="12" font-weight="700">0..*</text>
+  <rect x="780" y="540" width="64" height="16" rx="3" fill="#f0fdf4" stroke="#16a34a" stroke-width="0.5"/>
+  <text x="812" y="552" text-anchor="middle" fill="#16a34a" font-size="10" font-weight="600">has many</text>
+
+  <!-- ============================================================ -->
+  <!--  LEGEND                                                       -->
+  <!-- ============================================================ -->
+  <g transform="translate(1000, 360)">
+    <rect x="0" y="0" width="260" height="180" rx="6" ry="6" fill="#f8fafc" stroke="#d1d5db" stroke-width="1"/>
+    <text x="130" y="24" text-anchor="middle" fill="#1e293b" font-size="13" font-weight="700">Legend</text>
+    <line x1="10" y1="34" x2="250" y2="34" stroke="#d1d5db" stroke-width="1"/>
+
+    <!-- Composition -->
+    <line x1="20" y1="56" x2="80" y2="56" stroke="#1e293b" stroke-width="2" marker-start="url(#diamond)"/>
+    <text x="92" y="60" fill="#1e293b" font-size="11">Composition (cascade delete)</text>
+
+    <!-- Dashed line -->
+    <line x1="20" y1="84" x2="80" y2="84" stroke="#1e293b" stroke-width="2" stroke-dasharray="6,3" marker-start="url(#diamond)"/>
+    <text x="92" y="88" fill="#1e293b" font-size="11">Association (cascade delete)</text>
+
+    <!-- PK -->
+    <rect x="20" y="104" width="26" height="14" rx="3" fill="#f0fdf4" stroke="#16a34a" stroke-width="0.5"/>
+    <text x="33" y="114" text-anchor="middle" fill="#16a34a" font-size="9" font-weight="600">PK</text>
+    <text x="58" y="115" fill="#1e293b" font-size="11">Primary Key</text>
+
+    <!-- FK -->
+    <rect x="20" y="126" width="26" height="14" rx="3" fill="#f0fdf4" stroke="#16a34a" stroke-width="0.5"/>
+    <text x="33" y="136" text-anchor="middle" fill="#16a34a" font-size="9" font-weight="600">FK</text>
+    <text x="58" y="137" fill="#1e293b" font-size="11">Foreign Key</text>
+
+    <!-- Nullable -->
+    <text x="20" y="160" fill="#1e293b" font-size="11"><tspan font-weight="600">String?</tspan>  = nullable field</text>
+    <text x="20" y="176" fill="#64748b" font-size="10" font-style="italic">All IDs generated via cuid()</text>
+  </g>
+
+  <!-- Footer -->
+  <text x="660" y="868" text-anchor="middle" fill="#94a3b8" font-size="11">
+    MzansiBuilds Data Model  |  Prisma ORM  |  SQLite Database  |  Generated from schema.prisma
+  </text>
+
+</svg>

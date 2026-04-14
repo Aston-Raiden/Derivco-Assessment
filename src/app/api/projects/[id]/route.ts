@@ -1,3 +1,5 @@
+// GET/PATCH/DELETE /api/projects/[id] - single project operations
+// PATCH and DELETE check that the logged in user owns the project
 import { NextResponse } from "next/server";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/auth";

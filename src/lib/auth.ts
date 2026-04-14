@@ -1,3 +1,4 @@
+// NextAuth config - using credentials provider with JWT sessions
 import { NextAuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import { compare } from "bcryptjs";
@@ -41,6 +42,7 @@ export const authOptions: NextAuthOptions = {
   session: {
     strategy: "jwt",
   },
+  // attach the user id to the token/session so we can use it in API routes
   callbacks: {
     async jwt({ token, user }) {
       if (user) {

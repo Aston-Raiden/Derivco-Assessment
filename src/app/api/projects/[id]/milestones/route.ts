@@ -1,3 +1,6 @@
+// POST - add a milestone to a project
+// PATCH - toggle a milestone's achieved status
+// only the project owner can do either
 import { NextResponse } from "next/server";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/auth";

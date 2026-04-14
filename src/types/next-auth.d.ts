@@ -1,3 +1,5 @@
+// extend the default NextAuth types to include user id in session and jwt
+// without this, session.user.id would throw a TypeScript error
 import "next-auth";
 
 declare module "next-auth" {

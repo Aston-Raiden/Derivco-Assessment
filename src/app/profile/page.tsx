@@ -1,3 +1,5 @@
+// user profile page - can edit your bio, skills, github, linkedin
+// also shows all your projects below
 "use client";
 
 import { useEffect, useState, useCallback } from "react";

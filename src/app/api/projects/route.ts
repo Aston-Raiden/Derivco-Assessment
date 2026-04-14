@@ -1,3 +1,5 @@
+// GET /api/projects - list projects with filters + pagination
+// POST /api/projects - create a new project (requires auth)
 import { NextResponse } from "next/server";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/auth";
@@ -17,6 +19,7 @@ export async function GET(req: Request) {
     if (userId) where.userId = userId;
     if (completed === "true") where.isCompleted = true;
 
+    // run both queries in parallel for better performance
     const [projects, total] = await Promise.all([
       prisma.project.findMany({
         where,

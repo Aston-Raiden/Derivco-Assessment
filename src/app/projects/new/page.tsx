@@ -1,3 +1,4 @@
+// form page for creating a new project - stage picker uses cards instead of a boring dropdown
 "use client";
 
 import { useState } from "react";

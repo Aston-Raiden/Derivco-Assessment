@@ -1,3 +1,4 @@
+// reusable card component for displaying projects in the feed and profile
 "use client";
 
 import Link from "next/link";

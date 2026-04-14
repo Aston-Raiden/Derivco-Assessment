@@ -1,3 +1,4 @@
+// live feed page - polls every 15s for new projects, supports filtering by stage
 "use client";
 
 import { useEffect, useState, useCallback } from "react";

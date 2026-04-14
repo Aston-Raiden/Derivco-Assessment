@@ -1,3 +1,4 @@
+// login page - simple email/password form, redirects to feed on success
 "use client";
 
 import { useState } from "react";

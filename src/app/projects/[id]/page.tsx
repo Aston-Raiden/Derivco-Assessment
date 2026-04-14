@@ -1,3 +1,5 @@
+// project detail page - shows everything about a single project
+// milestones, comments, collab requests, and owner controls (edit stage, delete, etc.)
 "use client";
 
 import { useEffect, useState, useCallback } from "react";

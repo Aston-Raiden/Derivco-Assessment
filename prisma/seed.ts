@@ -1,3 +1,5 @@
+// seed script - populates the database with demo users and SA-themed projects
+// run with: npx tsx prisma/seed.ts
 import "dotenv/config";
 import { hash } from "bcryptjs";
 import path from "path";

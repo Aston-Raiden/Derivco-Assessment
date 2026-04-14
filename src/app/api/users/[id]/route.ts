@@ -1,3 +1,4 @@
+// user profile - GET is public, PATCH is restricted to your own profile
 import { NextResponse } from "next/server";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/auth";
@@ -51,7 +52,8 @@ export async function PATCH(
     }
 
     const data = await req.json();
-    // Only allow updating specific fields
+    // whitelist approach - only allow these fields to be updated
+    // prevents someone from changing their email or password through this endpoint
     const allowedFields = ["name", "bio", "avatar", "github", "linkedin", "skills"];
     const updateData: Record<string, string> = {};
     for (const field of allowedFields) {

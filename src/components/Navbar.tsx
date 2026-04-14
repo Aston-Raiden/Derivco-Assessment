@@ -1,3 +1,4 @@
+// main navigation - shows different links based on whether user is logged in
 "use client";
 
 import Link from "next/link";

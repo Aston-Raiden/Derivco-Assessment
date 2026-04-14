@@ -1,3 +1,5 @@
+// celebration wall - showcases projects that have been marked as completed
+// has a dark hero banner at the top and card grid below
 "use client";
 
 import { useEffect, useState } from "react";

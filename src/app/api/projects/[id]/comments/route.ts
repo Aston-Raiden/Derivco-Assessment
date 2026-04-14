@@ -1,3 +1,4 @@
+// comments on a project - anyone can read, logged in users can post
 import { NextResponse } from "next/server";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/auth";

@@ -1,3 +1,4 @@
+// registration page - creates account then auto signs in so user doesn't have to login again
 "use client";
 
 import { useState } from "react";

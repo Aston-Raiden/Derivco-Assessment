@@ -1,3 +1,4 @@
+// POST /api/auth/register - create a new user account
 import { NextResponse } from "next/server";
 import { hash } from "bcryptjs";
 import { prisma } from "@/lib/prisma";
@@ -31,6 +32,7 @@ export async function POST(req: Request) {
       );
     }
 
+    // 12 salt rounds - good balance between security and speed
     const hashedPassword = await hash(password, 12);
 
     const user = await prisma.user.create({

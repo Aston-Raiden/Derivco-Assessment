@@ -1,3 +1,6 @@
+// collaboration / "raise hand" feature
+// POST - request to collaborate (prevents duplicates)
+// PATCH - project owner accepts or declines a request
 import { NextResponse } from "next/server";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/auth";

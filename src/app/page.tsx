@@ -1,3 +1,5 @@
+// landing page - hero, features, how-it-works, stats, and CTA
+// redirects to /feed if already logged in
 "use client";
 
 import Link from "next/link";
