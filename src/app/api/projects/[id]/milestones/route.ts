@@ -1,0 +1,70 @@
+import { NextResponse } from "next/server";
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/lib/auth";
+import { prisma } from "@/lib/prisma";
+
+export async function POST(
+  req: Request,
+  { params }: { params: Promise<{ id: string }> }
+) {
+  try {
+    const session = await getServerSession(authOptions);
+    if (!session?.user?.id) {
+      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+    }
+
+    const { id } = await params;
+    const project = await prisma.project.findUnique({ where: { id } });
+    if (!project || project.userId !== session.user.id) {
+      return NextResponse.json({ error: "Forbidden" }, { status: 403 });
+    }
+
+    const { title, description } = await req.json();
+    if (!title) {
+      return NextResponse.json({ error: "Title is required" }, { status: 400 });
+    }
+
+    const milestone = await prisma.milestone.create({
+      data: { title, description, projectId: id },
+    });
+
+    return NextResponse.json(milestone, { status: 201 });
+  } catch {
+    return NextResponse.json({ error: "Failed to create milestone" }, { status: 500 });
+  }
+}
+
+export async function PATCH(
+  req: Request,
+  { params }: { params: Promise<{ id: string }> }
+) {
+  try {
+    const session = await getServerSession(authOptions);
+    if (!session?.user?.id) {
+      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+    }
+
+    const { milestoneId, isAchieved } = await req.json();
+    if (!milestoneId) {
+      return NextResponse.json({ error: "Milestone ID is required" }, { status: 400 });
+    }
+
+    const { id } = await params;
+    const project = await prisma.project.findUnique({ where: { id } });
+    if (!project || project.userId !== session.user.id) {
+      return NextResponse.json({ error: "Forbidden" }, { status: 403 });
+    }
+
+    const milestone = await prisma.milestone.update({
+      where: { id: milestoneId },
+      data: {
+        isAchieved,
+        achievedAt: isAchieved ? new Date() : null,
+      },
+    });
+
+    return NextResponse.json(milestone);
+  } catch {
+    return NextResponse.json({ error: "Failed to update milestone" }, { status: 500 });
+  }
+}
