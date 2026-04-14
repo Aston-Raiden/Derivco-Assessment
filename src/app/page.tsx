@@ -50,10 +50,10 @@ export default function LandingPage() {
   ];
 
   const stats = [
-    { label: "Builders", value: "100+" },
-    { label: "Projects", value: "250+" },
-    { label: "Collaborations", value: "80+" },
-    { label: "Completed", value: "120+" },
+    { label: "Builders", value: "50+" },
+    { label: "Projects", value: "120+" },
+    { label: "Collaborations", value: "30+" },
+    { label: "Shipped", value: "45+" },
   ];
 
   return (
