@@ -2,10 +2,11 @@
 // redirects to /feed if already logged in
 "use client";
 
+import { useEffect } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { useSession } from "next-auth/react";
-import { redirect } from "next/navigation";
+import { useRouter } from "next/navigation";
 import {
   Rocket,
   Users,
@@ -19,10 +20,12 @@ import {
 
 export default function LandingPage() {
   const { data: session } = useSession();
+  const router = useRouter();
 
-  if (session) {
-    redirect("/feed");
-  }
+  // redirect logged in users to the feed
+  useEffect(() => {
+    if (session) router.push("/feed");
+  }, [session, router]);
 
   const features = [
     {

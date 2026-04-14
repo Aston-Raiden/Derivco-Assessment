@@ -45,27 +45,7 @@ body {
   background: #94a3b8;
 }
 
-/* Animations */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes shimmer {
-  0% {
-    background-position: -200% 0;
-  }
-  100% {
-    background-position: 200% 0;
-  }
-}
-
+/* pulse animation for the live feed indicator dot */
 @keyframes pulse-green {
   0%, 100% {
     box-shadow: 0 0 0 0 rgba(22, 163, 74, 0.4);
@@ -73,16 +53,6 @@ body {
   50% {
     box-shadow: 0 0 0 8px rgba(22, 163, 74, 0);
   }
-}
-
-.animate-fade-in-up {
-  animation: fadeInUp 0.5s ease-out forwards;
-}
-
-.animate-shimmer {
-  background: linear-gradient(90deg, transparent 0%, rgba(22, 163, 74, 0.1) 50%, transparent 100%);
-  background-size: 200% 100%;
-  animation: shimmer 2s infinite;
 }
 
 .animate-pulse-green {

@@ -56,10 +56,19 @@ export async function PATCH(
       return NextResponse.json({ error: "Forbidden" }, { status: 403 });
     }
 
-    const data = await req.json();
+    const body = await req.json();
 
-    // If marking as completed, set completedAt
-    if (data.stage === "completed" || data.isCompleted) {
+    // only allow specific fields to be updated - same approach as the users PATCH
+    const allowedFields = ["title", "description", "stage", "supportNeeded", "techStack", "repoUrl", "liveUrl"];
+    const data: Record<string, unknown> = {};
+    for (const field of allowedFields) {
+      if (body[field] !== undefined) {
+        data[field] = body[field];
+      }
+    }
+
+    // if marking as completed, set the completedAt timestamp
+    if (data.stage === "completed" || body.isCompleted) {
       data.isCompleted = true;
       data.completedAt = new Date();
       data.stage = "completed";

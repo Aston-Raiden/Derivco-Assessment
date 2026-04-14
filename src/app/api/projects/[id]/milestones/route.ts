@@ -58,7 +58,13 @@ export async function PATCH(
       return NextResponse.json({ error: "Forbidden" }, { status: 403 });
     }
 
-    const milestone = await prisma.milestone.update({
+    // make sure this milestone actually belongs to this project
+    const milestone = await prisma.milestone.findUnique({ where: { id: milestoneId } });
+    if (!milestone || milestone.projectId !== id) {
+      return NextResponse.json({ error: "Milestone not found in this project" }, { status: 404 });
+    }
+
+    const updated = await prisma.milestone.update({
       where: { id: milestoneId },
       data: {
         isAchieved,
@@ -66,7 +72,7 @@ export async function PATCH(
       },
     });
 
-    return NextResponse.json(milestone);
+    return NextResponse.json(updated);
   } catch {
     return NextResponse.json({ error: "Failed to update milestone" }, { status: 500 });
   }

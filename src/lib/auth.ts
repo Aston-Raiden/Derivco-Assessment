@@ -60,5 +60,5 @@ export const authOptions: NextAuthOptions = {
   pages: {
     signIn: "/login",
   },
-  secret: process.env.NEXTAUTH_SECRET || "mzansi-builds-secret-key-dev-2024",
+  secret: process.env.NEXTAUTH_SECRET,
 };
